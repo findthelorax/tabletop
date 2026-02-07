@@ -1,0 +1,106 @@
+@layer app {
+    .tablesInlineForm {
+        padding: 12px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .tablesInlineRow {
+        display: grid;
+        grid-template-columns: 120px 120px 1fr;
+        gap: 10px;
+    }
+
+    .tablesField {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .tablesField.dashboardFloorplanField {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tablesField.dashboardFloorplanField .tablesLabel {
+        white-space: nowrap;
+    }
+
+    .tablesField.dashboardFloorplanField .tablesSelect {
+        flex: 1;
+        min-width: 180px;
+    }
+
+    .tablesLabel {
+        font-size: 12px;
+        color: var(--text);
+    }
+
+    .tablesInput,
+    .tablesSelect {
+        height: 36px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        color: var(--text);
+        padding: 0 10px;
+    }
+
+    .tablesFieldError {
+        font-size: 12px;
+        color: var(--text);
+    }
+
+    .tablesFormError {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 12px;
+        white-space: pre-wrap;
+    }
+
+    .tablesInlineActions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .tablesPrimaryButton,
+    .tablesSecondaryButton {
+        height: 34px;
+        padding: 0 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        color: var(--text);
+        cursor: pointer;
+    }
+
+    .tablesPrimaryButton.tablesSmallButton,
+    .tablesSecondaryButton.tablesSmallButton {
+        height: 30px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .tablesInput.tablesSmallButton,
+    .tablesSelect.tablesSmallButton {
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .tablesPrimaryButton:hover,
+    .tablesSecondaryButton:hover {
+        background: color-mix(in srgb, var(--bg) 82%, var(--text));
+        border-color: color-mix(in srgb, var(--border) 70%, var(--text));
+    }
+
+    .tablesPrimaryButton:disabled,
+    .tablesSecondaryButton:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}

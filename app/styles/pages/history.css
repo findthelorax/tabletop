@@ -1,0 +1,156 @@
+.historyControls {
+    margin-left: auto;
+}
+
+.historyDateLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.historyDateInput {
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.historyEmpty {
+    margin-top: 18px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.historyGroups {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.historyTimeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.historyServer {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    padding: 12px;
+}
+
+.historyServerTitle {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.historySubheading {
+    margin: 10px 0 8px 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.historyRow {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 10px;
+    padding: 6px 0;
+    border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+.historyRow:first-of-type {
+    border-top: none;
+}
+
+.historyTime {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+.historyLabel {
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.historyRowTone--plus {
+    background: color-mix(
+        in srgb,
+        var(--status-available-bg) 22%,
+        var(--surface)
+    );
+    border-left: 4px solid var(--status-available-border);
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.historyRowTone--minus {
+    background: color-mix(in srgb, var(--status-dirty-bg) 22%, var(--surface));
+    border-left: 4px solid var(--status-dirty-border);
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.historyRowTone--move {
+    background: color-mix(in srgb, var(--status-hold-bg) 22%, var(--surface));
+    border-left: 4px solid var(--status-hold-border);
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.historyRowTone--neutral {
+    padding-left: 14px;
+}
+
+.historySubRows {
+    margin-left: 92px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+}
+
+.historySubRow {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 10px;
+    font-size: 12px;
+    color: color-mix(in srgb, var(--text) 78%, transparent);
+}
+
+.historySubTime {
+    font-variant-numeric: tabular-nums;
+}
+
+.historyLabelText {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.historyMetrics {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: color-mix(in srgb, var(--text) 82%, transparent);
+}
+
+.historyMetricSep {
+    color: color-mix(in srgb, var(--text) 55%, transparent);
+}

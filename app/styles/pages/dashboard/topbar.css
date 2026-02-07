@@ -1,0 +1,85 @@
+.dashboardTopBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.dashboardFloorplanWrap {
+    margin-top: 14px;
+}
+
+.dashboardStatusKey {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 4px;
+}
+
+.dashboardTopBar .tablesUndoButton {
+    border: 1px solid var(--status-dirty-border);
+    background: var(--status-dirty-bg);
+    color: var(--text);
+    cursor: pointer;
+}
+
+:root:not([data-theme="dark"]) .dashboardTopBar .tablesUndoButton {
+    color: #000000;
+}
+
+.dashboardTopBar .tablesUndoButton:hover {
+    background: color-mix(in srgb, var(--status-dirty-bg) 80%, var(--text));
+    border-color: color-mix(
+        in srgb,
+        var(--status-dirty-border) 85%,
+        var(--border)
+    );
+}
+
+.dashboardTopBar .tablesUndoButton:active {
+    background: color-mix(in srgb, var(--status-dirty-bg) 75%, var(--border));
+    border-color: color-mix(
+        in srgb,
+        var(--status-dirty-border) 75%,
+        var(--border)
+    );
+}
+
+.dashboardTopBar .tablesUndoButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.dashboardTopBar .tablesUndoButton:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 1px;
+}
+
+.dashboardFloorplanField {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboardFloorplanField .tablesSelect {
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.dashboardFloorplanField .tablesSelect:hover {
+    background: color-mix(in srgb, var(--bg) 82%, var(--text));
+    border-color: color-mix(in srgb, var(--border) 70%, var(--text));
+}
+
+.dashboardFloorplanField .tablesSelect:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 1px;
+}
+
+.dashboardFloorplanField .tablesSelect:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

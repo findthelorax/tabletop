@@ -1,0 +1,95 @@
+@layer app {
+    .tableCard {
+        border: 1px solid var(--border);
+        background: var(--bg);
+        border-radius: 12px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-height: 120px;
+    }
+
+    .tableCard[data-status="AVAILABLE"] {
+        background: var(--status-available-bg);
+        border-color: var(--status-available-border);
+    }
+
+    .tableCard[data-status="SEATED"] {
+        background: var(--status-seated-bg);
+        border-color: var(--status-seated-border);
+    }
+
+    .tableCard[data-status="DIRTY"] {
+        background: var(--status-dirty-bg);
+        border-color: var(--status-dirty-border);
+    }
+
+    .tableCard[data-status="ON_HOLD"] {
+        background: var(--status-hold-bg);
+        border-color: var(--status-hold-border);
+    }
+
+    .tableCard[data-status="DISABLED"] {
+        background: var(--status-disabled-bg);
+        border-color: var(--status-disabled-border);
+        color: var(--status-disabled-text);
+    }
+
+    .tableCard[data-status="DISABLED"] .tableCardKind {
+        color: color-mix(in srgb, var(--status-disabled-text) 75%, transparent);
+    }
+
+    .tableCard[data-overdue="true"] {
+        background: var(--status-dirty-bg);
+        border-color: var(--status-dirty-border);
+    }
+
+    .tableCardActions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .tableCardEditForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tableCardEditRow {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tableCardEditRow .tablesField {
+        min-width: 0;
+    }
+
+    .tableCardEditForm .tablesInput,
+    .tableCardEditForm .tablesSelect {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .tableCardHeader {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .tableCardNumber {
+        font-size: 22px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .tableCardKind {
+        font-size: 12px;
+        color: var(--text);
+        text-align: right;
+    }
+}

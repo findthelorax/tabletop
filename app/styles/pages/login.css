@@ -1,0 +1,60 @@
+.loginPage {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.loginCard {
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.loginForm {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.loginLabel {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.loginInput {
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0 12px;
+}
+
+.loginButton {
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    filter: brightness(0.98);
+}
+
+.loginError {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--text);
+}

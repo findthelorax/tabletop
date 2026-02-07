@@ -1,0 +1,26 @@
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.pageTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pageTitleRow .pageTitle {
+    margin-bottom: 0;
+    line-height: 30px;
+}
+
+.pageSubtitle {
+    margin: 0;
+    color: var(--text);
+}

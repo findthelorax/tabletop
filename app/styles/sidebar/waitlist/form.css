@@ -1,0 +1,136 @@
+.waitlistAddButton {
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.waitlistAddButton:hover {
+    background: color-mix(in srgb, var(--bg) 82%, var(--text));
+    border-color: color-mix(in srgb, var(--border) 70%, var(--text));
+}
+
+.waitlistAddForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 10px;
+}
+
+.waitlistFormRow {
+    display: flex;
+    gap: 10px;
+}
+
+.waitlistFormRow > .waitlistField {
+    flex: 1;
+    min-width: 0;
+}
+
+.waitlistField {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.waitlistLabel {
+    font-size: 12px;
+    color: var(--text);
+}
+
+.waitlistInput,
+.waitlistTextarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.waitlistNumberInput {
+    position: relative;
+    width: 100%;
+}
+
+.waitlistNumberInputField {
+    padding-right: 40px;
+}
+
+.waitlistNumberSpin {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border);
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    overflow: hidden;
+}
+
+.waitlistNumberSpinButton {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0;
+}
+
+.waitlistNumberSpinButton + .waitlistNumberSpinButton {
+    border-top: 1px solid var(--border);
+}
+
+.waitlistNumberSpinButton:hover {
+    background: var(--surface-2);
+}
+
+.waitlistNumberSpinButton:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.waitlistTextarea {
+    resize: vertical;
+}
+
+.waitlistCheckboxRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+}
+
+.waitlistFormActions {
+    display: flex;
+    gap: 10px;
+}
+
+.waitlistPrimaryButton,
+.waitlistSecondaryButton {
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.waitlistPrimaryButton:hover,
+.waitlistSecondaryButton:hover {
+    background: var(--surface-2);
+}

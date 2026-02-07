@@ -1,0 +1,132 @@
+.dashboardDialogBody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dashboardDialogMeta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+}
+
+.dashboardDialogSectionTitle {
+    font-weight: 650;
+    margin-bottom: 8px;
+}
+
+.dashboardDialogHint {
+    font-size: 12px;
+    color: var(--text);
+}
+
+.dashboardSeatButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dashboardDialogActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dashboardDialogActions .tablesPrimaryButton,
+.dashboardDialogActions .tablesSecondaryButton {
+    height: 38px;
+    padding: 0 8px;
+    font-size: 13px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboardDialogActions .tablesSmallButton {
+    min-width: 76px;
+}
+
+.dashboardDialogActions .dashboardStatusButton {
+    background: var(--_status-bg, var(--surface));
+    border: 1px solid var(--_status-border, var(--border));
+    color: var(--_status-text, var(--text));
+    font-weight: 800;
+}
+
+.dashboardDialogActions .dashboardStatusButton[data-status="AVAILABLE"] {
+    --_status-bg: var(--status-available-bg);
+    --_status-border: var(--status-available-border);
+    --_status-text: var(--text);
+}
+
+.dashboardDialogActions .dashboardStatusButton[data-status="DIRTY"] {
+    --_status-bg: var(--status-dirty-bg);
+    --_status-border: var(--status-dirty-border);
+    --_status-text: var(--text);
+}
+
+.dashboardDialogActions .dashboardStatusButton[data-status="ON_HOLD"] {
+    --_status-bg: var(--status-hold-bg);
+    --_status-border: var(--status-hold-border);
+    --_status-text: var(--text);
+}
+
+.dashboardDialogActions .dashboardStatusButton[data-status="DISABLED"] {
+    --_status-bg: var(--status-disabled-bg);
+    --_status-border: var(--status-disabled-border);
+    --_status-text: var(--status-disabled-text);
+}
+
+.dashboardDialogActions button[data-action="move"],
+.dashboardDialogActions button[data-kind="move"] {
+    --_move-bg: color-mix(
+        in srgb,
+        var(--status-hold-bg) 58%,
+        var(--status-dirty-bg)
+    );
+    --_move-border: color-mix(
+        in srgb,
+        var(--status-hold-border) 58%,
+        var(--status-dirty-border)
+    );
+
+    background: var(--_move-bg);
+    border-color: var(--_move-border);
+    color: var(--status-disabled-text);
+    font-weight: 800;
+}
+
+.dashboardDialogActions button[data-action="move"]:not(:disabled):hover,
+.dashboardDialogActions button[data-kind="move"]:not(:disabled):hover {
+    background: color-mix(in srgb, var(--_move-bg) 85%, var(--_move-border));
+}
+
+.dashboardSeatButtons .dashboardSeatButton {
+    height: 38px;
+    padding: 0 10px;
+    font-size: 20px;
+    min-width: 50px;
+    font-weight: 800;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboardSeatButtons
+    .tablesSecondaryButton.tablesSmallButton.dashboardSeatButton {
+    font-size: 20px;
+}
+
+.dashboardDialogActions .dashboardStatusButton:not(:disabled):hover {
+    background: color-mix(
+        in srgb,
+        var(--_status-bg) 85%,
+        var(--_status-border)
+    );
+}

@@ -1,0 +1,123 @@
+@layer app {
+    button[data-action="add"],
+    button[data-action="save"] {
+        background: color-mix(
+            in srgb,
+            var(--status-available-bg) 34%,
+            var(--bg)
+        );
+        border-color: var(--status-available-border);
+        color: var(--text);
+    }
+
+    button[data-action="add"]:hover,
+    button[data-action="save"]:hover {
+        background: color-mix(
+            in srgb,
+            var(--status-available-bg) 46%,
+            var(--bg)
+        );
+        border-color: var(--status-available-border);
+    }
+
+    button[data-action="cancel"],
+    button[data-action="close"] {
+        background: color-mix(in srgb, var(--status-dirty-bg) 32%, var(--bg));
+        border-color: var(--status-dirty-border);
+        color: var(--status-disabled-bg);
+    }
+
+    button[data-action="close"] {
+        color: var(--status-disabled-bg);
+    }
+
+    :root[data-theme="dark"] button[data-action="close"] {
+        color: var(--status-disabled-text);
+    }
+
+    button[data-action="delete"],
+    button[data-action="remove"] {
+        background: color-mix(in srgb, var(--status-dirty-bg) 32%, var(--bg));
+        border-color: var(--status-dirty-border);
+        color: var(--status-disabled-bg);
+    }
+
+    button[data-action="delete"]:hover,
+    button[data-action="remove"]:hover {
+        background: color-mix(in srgb, var(--status-dirty-bg) 44%, var(--bg));
+        border-color: var(--status-dirty-border);
+    }
+
+    button[data-action="edit"] {
+        background: color-mix(in srgb, var(--status-hold-bg) 34%, var(--bg));
+        border-color: var(--status-hold-border);
+        color: var(--status-disabled-bg);
+    }
+
+    button[data-action="edit"]:hover {
+        background: color-mix(in srgb, var(--status-hold-bg) 46%, var(--bg));
+        border-color: var(--status-hold-border);
+    }
+
+    button[data-action="arrive"] {
+        background: color-mix(in srgb, var(--status-seated-bg) 34%, var(--bg));
+        border-color: var(--status-seated-border);
+        color: var(--text);
+    }
+
+    button[data-action="arrive"]:hover {
+        background: color-mix(in srgb, var(--status-seated-bg) 46%, var(--bg));
+        border-color: var(--status-seated-border);
+    }
+
+    button[data-action="text"] {
+        background: color-mix(
+            in srgb,
+            color-mix(
+                    in srgb,
+                    var(--status-seated-bg) 55%,
+                    var(--status-dirty-bg)
+                )
+                34%,
+            var(--bg)
+        );
+        border-color: color-mix(
+            in srgb,
+            var(--status-seated-border) 55%,
+            var(--status-dirty-border)
+        );
+        color: var(--text);
+    }
+
+    button[data-action="text"]:hover {
+        background: color-mix(
+            in srgb,
+            color-mix(
+                    in srgb,
+                    var(--status-seated-bg) 55%,
+                    var(--status-dirty-bg)
+                )
+                46%,
+            var(--bg)
+        );
+        border-color: color-mix(
+            in srgb,
+            var(--status-seated-border) 55%,
+            var(--status-dirty-border)
+        );
+    }
+
+    :root[data-theme="dark"] button[data-action="add"],
+    :root[data-theme="dark"] button[data-action="cancel"],
+    :root[data-theme="dark"] button[data-action="delete"],
+    :root[data-theme="dark"] button[data-action="remove"],
+    :root[data-theme="dark"] button[data-action="edit"] {
+        color: var(--status-disabled-text);
+    }
+
+    button[data-action="cancel"]:hover,
+    button[data-action="close"]:hover {
+        background: color-mix(in srgb, var(--status-dirty-bg) 44%, var(--bg));
+        border-color: var(--status-dirty-border);
+    }
+}

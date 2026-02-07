@@ -1,0 +1,336 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum TableStatus {
+  AVAILABLE
+  SEATED
+  DIRTY
+  ON_HOLD
+  DISABLED
+}
+
+enum TableKind {
+  BAR
+  HIGHTOP
+  BOOTH
+  TABLE_AND_CHAIRS
+  MIXED
+}
+
+enum WaitlistStatus {
+  /// Call-ahead created, not arrived yet. Timer should not run.
+  CALL_AHEAD
+
+  /// In-person entry (or call-ahead after they arrive). Timer runs from waitingStartedAt.
+  WAITING
+
+  /// Explicitly marked arrived.
+  ARRIVED
+
+  /// Guest seated.
+  SEATED
+
+  /// Removed without being seated.
+  CANCELLED
+  NO_SHOW
+}
+
+model Restaurant {
+  id   String @id @default(cuid())
+  /// Human-friendly display name (not globally unique).
+  name String
+
+  /// Unique store number per restaurant (not used in URL routing).
+  storeNumber Int @default(1)
+
+  /// Restaurant login identifier (what your login screen calls "Username").
+  /// This can be the store number as a string, or something like "admin".
+  loginUsername String @default("admin")
+
+  /// Password stored as a salted hash (set during bootstrap or via admin tooling).
+  passwordSalt String?
+  passwordHash String?
+
+  servers       Server[]
+  tables        Table[]
+  tableAreas    TableArea[]
+  floorplans    Floorplan[]
+  waitlist      WaitlistEntry[]
+  tableSeatings TableSeating[]
+  tableEvents   TableStatusEvent[]
+  tempTableAssignments TempTableAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([storeNumber])
+  @@unique([loginUsername])
+}
+
+model TableArea {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  name      String
+  sortOrder Int @default(0)
+
+  tables Table[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([restaurantId, name])
+  @@index([restaurantId, sortOrder])
+}
+
+model Table {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  areaId String?
+  area   TableArea? @relation(fields: [areaId], references: [id], onDelete: SetNull)
+
+  tableNumber Int
+  label       String?
+  capacity    Int
+  kind        TableKind
+  hasBooth    Boolean   @default(false)
+
+  isStepUp        Boolean @default(false)
+  allowsHighChair Boolean @default(true)
+
+  status TableStatus @default(AVAILABLE)
+
+  seatedAt        DateTime?
+  seatedPartySize Int?
+
+  seatings     TableSeating[]
+  statusEvents TableStatusEvent[]
+  tempAssignments TempTableAssignment[]
+
+  preferredByWaitlistEntries WaitlistEntry[] @relation("WaitlistPreferredTable")
+
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  floorplanSectionTables FloorplanSectionTable[]
+
+  @@unique([restaurantId, tableNumber])
+  @@index([restaurantId, status])
+  @@index([restaurantId, areaId])
+}
+
+model TableSeating {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  tableId String
+  table   Table  @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  partySize Int
+  seatedAt  DateTime @default(now())
+
+  serverId String?
+  server   Server? @relation(fields: [serverId], references: [id], onDelete: SetNull)
+
+  endedAt DateTime?
+  notes   String?
+
+  waitlistEntry WaitlistEntry?
+
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  tableStatusEvents TableStatusEvent[]
+
+  @@index([restaurantId, tableId, seatedAt])
+  @@index([restaurantId, serverId, seatedAt])
+  @@index([restaurantId, endedAt])
+}
+
+model TableStatusEvent {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  tableId String
+  table   Table  @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  fromStatus TableStatus?
+  toStatus   TableStatus
+
+  occurredAt DateTime @default(now())
+  partySize  Int?
+  notes      String?
+
+  seatingId String?
+  seating   TableSeating? @relation(fields: [seatingId], references: [id], onDelete: SetNull)
+
+  @@index([restaurantId, tableId, occurredAt])
+}
+
+model Floorplan {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  name String
+
+  sections FloorplanSection[]
+  tempTableAssignments TempTableAssignment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([restaurantId, name])
+}
+
+model FloorplanSection {
+  id          String    @id @default(cuid())
+  floorplanId String
+  floorplan   Floorplan @relation(fields: [floorplanId], references: [id], onDelete: Cascade)
+
+  name String
+
+  serverName String?
+
+  serverId String?
+  server   Server? @relation(fields: [serverId], references: [id], onDelete: SetNull)
+
+  sortOrder Int @default(0)
+
+  tables FloorplanSectionTable[]
+  tempAssignmentsFrom TempTableAssignment[] @relation("TempFromSection")
+  tempAssignmentsTo   TempTableAssignment[] @relation("TempToSection")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([floorplanId, name])
+  @@index([floorplanId, sortOrder])
+}
+
+model Server {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  name String
+
+  sections FloorplanSection[]
+  seatings TableSeating[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([restaurantId, name])
+  @@index([restaurantId, name])
+}
+
+model FloorplanSectionTable {
+  floorplanSectionId String
+  floorplanSection   FloorplanSection @relation(fields: [floorplanSectionId], references: [id], onDelete: Cascade)
+
+  tableId String
+  table   Table  @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  sortOrder Int @default(0)
+
+  @@id([floorplanSectionId, tableId])
+  @@index([tableId])
+}
+
+model TempTableAssignment {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  floorplanId String
+  floorplan   Floorplan @relation(fields: [floorplanId], references: [id], onDelete: Cascade)
+
+  tableId String
+  table   Table @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  fromSectionId String
+  fromSection   FloorplanSection @relation("TempFromSection", fields: [fromSectionId], references: [id], onDelete: Cascade)
+
+  toSectionId String
+  toSection   FloorplanSection @relation("TempToSection", fields: [toSectionId], references: [id], onDelete: Cascade)
+
+  restoreToStatus TableStatus?
+
+  createdAt DateTime @default(now())
+  endedAt   DateTime?
+
+  @@index([restaurantId, floorplanId, endedAt])
+  @@index([restaurantId, floorplanId, toSectionId, endedAt])
+  @@index([restaurantId, floorplanId, tableId, endedAt])
+}
+
+model WaitlistEntry {
+  id           String     @id @default(cuid())
+  restaurantId String
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  serviceDay String
+
+  partyName   String
+  partySize   Int
+  phoneNumber String?
+
+  isCallAhead Boolean @default(false)
+
+  quotedWaitMinutes Int?
+  notes             String?
+
+  preferredTableId String?
+  preferredTable   Table?  @relation("WaitlistPreferredTable", fields: [preferredTableId], references: [id], onDelete: SetNull)
+
+  status WaitlistStatus
+
+  arrivedAt DateTime?
+
+  /// UI waiting timer base:
+  /// - if not call-ahead: set to createdAt
+  /// - if call-ahead: set when the guest is marked arrived
+  waitingStartedAt DateTime?
+
+  seatedAt  DateTime?
+  seatingId String?       @unique
+  seating   TableSeating? @relation(fields: [seatingId], references: [id], onDelete: SetNull)
+
+  removedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([restaurantId, status])
+  @@index([restaurantId, waitingStartedAt])
+  @@index([restaurantId, serviceDay, status])
+  @@index([restaurantId, preferredTableId])
+}
+
+model DashboardAction {
+  id           String @id @default(cuid())
+  restaurantId String
+  floorplanId  String?
+
+  /// A stable identifier for undo logic (e.g. "set-table-status", "seat-table").
+  kind  String
+  /// Human-readable label for the Undo list.
+  label String
+  /// Arbitrary structured payload containing before/after information.
+  meta  Json?
+
+  createdAt DateTime @default(now())
+  undoneAt  DateTime?
+
+  @@index([restaurantId, floorplanId, createdAt])
+  @@index([restaurantId, floorplanId, undoneAt, createdAt])
+}

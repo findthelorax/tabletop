@@ -1,0 +1,82 @@
+@layer app {
+    .tablesTopBar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .tablesAreas {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .tablesArea {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--bg);
+        overflow: hidden;
+    }
+
+    .tablesAreaHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+    }
+
+    .tablesHeaderActions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .tablesSmallButton {
+        height: 30px;
+        padding: 0 10px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
+
+    .tablesAreaHeaderForm {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .tablesAreaHeaderForm .tablesInput {
+        flex: 1;
+        min-width: 140px;
+    }
+
+    .tablesAreaTitle {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 650;
+    }
+
+    .tablesIconButton {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+    }
+
+    .tablesIconButton:hover {
+        background: var(--surface-2);
+    }
+}

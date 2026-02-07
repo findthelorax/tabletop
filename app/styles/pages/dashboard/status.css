@@ -1,0 +1,52 @@
+.dashboardStatusChip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 8px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.dashboardStatusChip[data-kind="available"] {
+    background: var(--status-available-bg);
+    border-color: var(--status-available-border);
+}
+
+.dashboardStatusChip[data-kind="seated"] {
+    background: var(--status-seated-bg);
+    border-color: var(--status-seated-border);
+}
+
+.dashboardStatusChip[data-kind="dirty"] {
+    background: var(--status-dirty-bg);
+    border-color: var(--status-dirty-border);
+    color: var(--text);
+}
+
+.dashboardStatusChip[data-kind="hold"] {
+    background: var(--status-hold-bg);
+    border-color: var(--status-hold-border);
+}
+
+.dashboardStatusChip[data-kind="disabled"] {
+    background: var(--status-disabled-bg);
+    border-color: var(--status-disabled-border);
+    color: #ffffff;
+}
+
+.dashboardStatusChip[data-kind="temp"] {
+    background: repeating-linear-gradient(
+        135deg,
+        var(--status-available-bg) 0,
+        var(--status-available-bg) 8px,
+        var(--status-seated-bg) 8px,
+        var(--status-seated-bg) 16px
+    );
+    border-color: var(--status-hold-border);
+    box-shadow: 0 0 0 2px var(--status-hold-border) inset;
+}

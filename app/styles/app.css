@@ -1,0 +1,14 @@
+@import "./theme.css";
+@import "./layout.css";
+@import "./nav.css";
+@import "./sidebar.css";
+@import "./modal.css";
+@import "./pages/base.css";
+@import "./pages/dashboard.css";
+@import "./pages/floorplan.css";
+@import "./pages/login.css";
+@import "./pages/servers.css";
+@import "./pages/history.css";
+@import "./pages/waitlist.css";
+@import "./pages/tables.css";
+@import "./toast.css";

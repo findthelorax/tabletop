@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+build/
+dist/
+
+# React Router generated
+.react-router/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Prisma
+prisma/migrations/

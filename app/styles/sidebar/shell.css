@@ -1,0 +1,34 @@
+.sidebar {
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 56px;
+    padding: 0 8px;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+}
+
+.sidebarToggle {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+}
+
+.sidebarToggle:hover {
+    background: color-mix(in srgb, var(--bg) 82%, var(--text));
+    border-color: color-mix(in srgb, var(--border) 70%, var(--text));
+}

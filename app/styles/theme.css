@@ -1,0 +1,89 @@
+:root {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    --bg: #ffffff;
+    --text: #000000;
+    --surface: #f8fafc;
+    --surface-2: #f1f5f9;
+    --border: #aaaaaa;
+    --focus: #ac25eb;
+
+    --status-available-bg: color-mix(in srgb, #0cc415 88%, var(--bg));
+    --status-available-border: color-mix(in srgb, #0cc415 88%, var(--border));
+    --status-available-text: #14532d;
+
+    --status-seated-bg: color-mix(in srgb, #2563eb 88%, var(--bg));
+    --status-seated-border: color-mix(in srgb, #2563eb 88%, var(--border));
+
+    --status-dirty-bg: color-mix(in srgb, #dc2626 88%, var(--bg));
+    --status-dirty-border: color-mix(in srgb, #dc2626 88%, var(--border));
+    --status-dirty-text: #b91c1c;
+
+    --status-hold-bg: color-mix(in srgb, #f59e0b 88%, var(--bg));
+    --status-hold-border: color-mix(in srgb, #d97706 88%, var(--border));
+    --status-hold-text: #92400e;
+
+    --status-disabled-bg: #000000;
+    --status-disabled-border: #000000;
+    --status-disabled-text: #ffffff;
+}
+
+:root[data-theme="dark"] {
+    --bg: #292929;
+    --text: #ffffff;
+    --surface: #1f1f1f;
+    --surface-2: #303030;
+    --border: #4b4b4b;
+    --focus: #c160fa;
+
+    --status-available-bg: color-mix(in srgb, #0bd125 78%, var(--bg));
+    --status-available-border: color-mix(in srgb, #0bd125 78%, var(--border));
+    --status-available-text: #bbf7d0;
+
+    --status-seated-bg: color-mix(in srgb, #60a5fa 78%, var(--bg));
+    --status-seated-border: color-mix(in srgb, #60a5fa 78%, var(--border));
+
+    --status-dirty-bg: color-mix(in srgb, #ff5454 78%, var(--bg));
+    --status-dirty-border: color-mix(in srgb, #f82a2a 78%, var(--border));
+    --status-dirty-text: #f87171;
+
+    --status-hold-bg: color-mix(in srgb, #fbbf24 78%, var(--bg));
+    --status-hold-border: color-mix(in srgb, #fbbf24 78%, var(--border));
+    --status-hold-text: #fde68a;
+
+    --status-disabled-bg: #000000;
+    --status-disabled-border: #000000;
+    --status-disabled-text: #ffffff;
+}
+
+html {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+:root[data-busy="true"] {
+    cursor: wait;
+}
+
+:root[data-busy="true"] * {
+    cursor: wait;
+}

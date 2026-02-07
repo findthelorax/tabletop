@@ -1,0 +1,78 @@
+.dashboardDialogHint.waitlistGuestDialogHint,
+.dashboardDialogHint.waitlistGuestDialogHint > div {
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.waitlistDialogActions button[data-action="save"] {
+    background: var(--status-available-bg);
+    border-color: var(--status-available-border);
+    color: var(--text);
+}
+
+.waitlistDialogActions button[data-action="sit"] {
+    background: var(--status-seated-bg);
+    border-color: var(--status-seated-border);
+    color: var(--status-seated-text);
+}
+
+.waitlistDialogActions button[data-action="arrive"] {
+    background: var(--status-available-bg);
+    border-color: var(--status-available-border);
+    color: var(--text);
+}
+
+.waitlistDialogActions button[data-action="edit"] {
+    background: var(--status-hold-bg);
+    border-color: var(--status-hold-border);
+    color: var(--text);
+}
+
+.waitlistDialogActions button[data-action="remove"] {
+    background: var(--status-dirty-bg);
+    border-color: var(--status-dirty-border);
+    color: var(--text);
+}
+
+.waitlistDialogActions button[data-action="text"] {
+    background: color-mix(
+        in srgb,
+        var(--status-seated-bg) 55%,
+        var(--status-dirty-bg)
+    );
+    border-color: color-mix(
+        in srgb,
+        var(--status-seated-border) 55%,
+        var(--status-dirty-border)
+    );
+    color: var(--text);
+}
+
+.waitlistDialogActions button[data-action="save"]:hover {
+    background: color-mix(in srgb, var(--status-available-bg) 86%, var(--text));
+}
+
+.waitlistDialogActions button[data-action="sit"]:hover {
+    background: color-mix(in srgb, var(--status-seated-bg) 86%, var(--text));
+}
+
+.waitlistDialogActions button[data-action="arrive"]:hover {
+    background: color-mix(in srgb, var(--status-available-bg) 86%, var(--text));
+}
+
+.waitlistDialogActions button[data-action="edit"]:hover {
+    background: color-mix(in srgb, var(--status-hold-bg) 86%, var(--text));
+}
+
+.waitlistDialogActions button[data-action="remove"]:hover {
+    background: color-mix(in srgb, var(--status-dirty-bg) 86%, var(--text));
+}
+
+.waitlistDialogActions button[data-action="text"]:hover {
+    background: color-mix(
+        in srgb,
+        color-mix(in srgb, var(--status-seated-bg) 55%, var(--status-dirty-bg))
+            86%,
+        var(--text)
+    );
+}

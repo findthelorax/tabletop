@@ -1,0 +1,104 @@
+.waitlistSidebarHeaderInline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.waitlistSidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+    min-height: 0;
+    flex: 1 1 auto;
+}
+
+.waitlistSidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 6px;
+    overflow: hidden;
+}
+
+.waitlistSidebarIcon {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+}
+
+.waitlistCollapsedList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.waitlistCollapsedItem {
+    padding: 0;
+    margin: 0;
+}
+
+.waitlistCollapsedItemButton {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.waitlistCollapsedItemButton:hover {
+    background: color-mix(in srgb, var(--bg) 82%, var(--text));
+    border-color: color-mix(in srgb, var(--border) 70%, var(--text));
+}
+
+.waitlistCollapsedName {
+    width: 100%;
+    font-size: 11px;
+    font-weight: 650;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.waitlistCollapsedSize {
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.waitlistSidebarTitle {
+    font-weight: 650;
+}
+
+.waitlistSidebarCount {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+.waitlistEmpty {
+    color: var(--text);
+    padding: 8px 6px;
+}
+
+.sidebar[data-collapsed="true"] .waitlistSidebar {
+    padding: 8px;
+}

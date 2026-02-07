@@ -1,0 +1,142 @@
+.waitlistList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.waitlistSidebarStatusKey {
+    margin-top: auto;
+    justify-content: flex-start;
+}
+
+.waitlistRow {
+    padding: 0;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 10px;
+}
+
+.waitlistRowLayout {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.waitlistRowButton {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content;
+    grid-template-rows: auto auto auto;
+    gap: 6px 10px;
+    padding: 8px 10px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.waitlistRowCancelButton {
+    flex: 0 0 auto;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.waitlistRowCancelButton:hover {
+    background: var(--surface-2);
+}
+
+.waitlistRowButton:hover {
+    background: color-mix(in srgb, var(--bg) 82%, var(--text));
+    border-radius: 10px;
+}
+
+.waitlistRowExpanded {
+    padding: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.waitlistRowActions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.waitlistInlineEdit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.waitlistStatus {
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.waitlistRowButton > .waitlistStatus {
+    grid-column: 1;
+    grid-row: 2;
+    overflow: visible;
+}
+
+.waitlistPartyName {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.waitlistRowButton > .waitlistPartyName {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.waitlistPref {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.waitlistRowButton > .waitlistPref {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.waitlistMetaNote {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.waitlistRowButton > .waitlistMetaNote {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: start;
+    max-width: 100%;
+}
+
+.waitlistDot {
+    opacity: 0.7;
+}
+
+.waitlistGuestNotes {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}

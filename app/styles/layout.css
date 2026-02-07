@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+.appShell {
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+.appFrame {
+    display: grid;
+    grid-template-rows: 56px 1fr;
+    min-height: 100vh;
+}
+
+.appMainRow {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: calc(100vh - 56px);
+}
+
+.appMainRow[data-sidebar-collapsed="true"] {
+    grid-template-columns: 56px 1fr;
+}
+
+.mainContent {
+    padding: 16px;
+}
+
+.errorPage {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.errorStack {
+    width: 100%;
+    padding: 12px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.errorMeta {
+    margin-top: 8px;
+    opacity: 0.75;
+    font-size: 12px;
+}

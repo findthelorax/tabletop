@@ -1,0 +1,66 @@
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: color-mix(in srgb, var(--text) 18%, transparent);
+    z-index: 50;
+    cursor: default;
+}
+
+.modalPanel {
+    width: min(520px, 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 14px;
+    cursor: default;
+}
+
+.waitlistFieldError {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text);
+}
+
+.waitlistFormError {
+    margin-top: 4px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 13px;
+}
+
+.waitlistFormErrorDetails {
+    margin: 8px 0 0;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.modalTitle {
+    font-weight: 650;
+}
+
+.waitlistModalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

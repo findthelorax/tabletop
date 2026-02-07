@@ -1,0 +1,30 @@
+.waitlistTimer {
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    text-align: right;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.waitlistRowButton > .waitlistTimer {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+}
+
+.waitlistTimer[data-state="countdown"] {
+    color: var(--status-available-text);
+}
+
+.waitlistTimer[data-state="countup"] {
+    color: var(--status-dirty-text);
+}
+
+.waitlistTimer[data-state="overdue"] {
+    color: var(--status-dirty-text);
+}
+
+.waitlistTimer[data-state="paused"] {
+    color: var(--text);
+}

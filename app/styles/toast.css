@@ -1,0 +1,46 @@
+.toastViewport {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 240px;
+    max-width: 360px;
+    padding: 12px 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 10px;
+}
+
+.toastMessage {
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.toastDismiss {
+    border: 1px solid var(--status-dirty-border);
+    background: color-mix(in srgb, var(--status-dirty-bg) 32%, var(--bg));
+    color: var(--status-disabled-bg);
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+:root[data-theme="dark"] .toastDismiss {
+    color: var(--status-disabled-text);
+}
+
+.toastDismiss:hover {
+    background: color-mix(in srgb, var(--status-dirty-bg) 44%, var(--bg));
+}

@@ -1,0 +1,233 @@
+.floorplanTopBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.floorplanSelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.floorplanCard {
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.floorplanCardHeader {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.floorplanCardTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.floorplanCardTitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.floorplanRenameRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.floorplanSections {
+    padding: 12px;
+}
+
+.floorplanSectionList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.floorplanSectionItem {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    padding: 12px;
+}
+
+.floorplanSectionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.floorplanSectionSummary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floorplanSectionSummaryGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.floorplanSectionSummaryHeaderRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.floorplanSectionSummaryHeaderRowWithActions {
+    position: relative;
+    padding-right: 140px;
+}
+
+.floorplanSectionSummaryActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.floorplanSectionSummaryTables {
+    grid-column: 1 / -1;
+}
+
+.floorplanSectionSummaryValue {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    padding-top: 2px;
+    word-break: break-word;
+}
+
+.floorplanSectionGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.floorplanTablesField {
+    grid-column: 1 / -1;
+}
+
+.floorplanTablePicker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floorplanChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.floorplanChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 6px 10px;
+    max-width: 100%;
+}
+
+.floorplanChipLabel {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.floorplanChipRemove {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    padding: 0 2px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.floorplanChipRemove:hover {
+    color: var(--text);
+}
+
+.floorplanSuggestions {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.floorplanSuggestion {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+}
+
+.floorplanSuggestion:last-child {
+    border-bottom: 0;
+}
+
+.floorplanSuggestion:hover {
+    background: var(--surface-2);
+}
+
+.floorplanSuggestion:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.floorplanSuggestionSelected {
+    background: var(--surface);
+}
+
+.floorplanSuggestionNumber {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+.floorplanSuggestionLabel {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.floorplanSectionActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 8px;
+}

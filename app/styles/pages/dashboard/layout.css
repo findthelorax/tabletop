@@ -1,0 +1,49 @@
+.dashboardCombineHint {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 10px 12px;
+    color: var(--text);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.dashboardEmptyState {
+    margin-top: 12px;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    color: var(--text);
+    background: var(--bg);
+}
+
+.dashboardSectionsGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+@media (min-width: 700px) {
+    .dashboardSectionsGrid {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+    }
+}
+
+@media (min-width: 1040px) {
+    .dashboardSectionsGrid {
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
+    }
+}
+
+@media (min-width: 1320px) {
+    .dashboardSectionsGrid {
+        grid-template-columns: repeat(4, minmax(260px, 1fr));
+    }
+}
+
+.page.dashboardPage {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}

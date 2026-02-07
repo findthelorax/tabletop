@@ -1,0 +1,38 @@
+.serversTopBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.serversTableWrap {
+    overflow: auto;
+}
+
+.serversTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.serversTable th,
+.serversTable td {
+    padding: 10px 12px;
+    border-top: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.serversTable thead th {
+    color: var(--text);
+    font-weight: 650;
+    background: var(--surface);
+    border-top: none;
+}
+
+.serversRowActions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}

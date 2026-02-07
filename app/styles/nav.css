@@ -1,0 +1,147 @@
+.topNav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 56px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.topNavBrand {
+    font-weight: 650;
+    letter-spacing: 0.2px;
+}
+
+.topNavLinks {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.navLink {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.navLink:hover {
+    background: var(--surface-2);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.navLink[aria-current="page"] {
+    color: var(--focus);
+    background: var(--bg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.topNavTime {
+    display: inline-flex;
+    align-items: center;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 8px;
+    color: var(--text);
+    font-weight: 650;
+    letter-spacing: 0.2px;
+    font-size: 2.5ch;
+    font-variant-numeric: tabular-nums;
+}
+
+.themeToggleForm {
+    margin: 0;
+}
+
+.themeToggleButton {
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.themeToggleButton:hover {
+    background: color-mix(in srgb, var(--status-dirty-bg) 32%, var(--bg));
+    border-color: var(--status-dirty-border);
+}
+
+.themeToggleSwitch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 64px;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.themeToggleSwitch:hover {
+    background: var(--surface);
+}
+
+.themeToggleTrackIcon {
+    width: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
+}
+
+.themeToggleTrackIconLight {
+    color: var(--text);
+}
+
+.themeToggleTrackIconDark {
+    color: var(--text);
+}
+
+.themeToggleKnob {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 160ms ease;
+}
+
+.themeToggleKnobIcon {
+    font-size: 14px;
+    line-height: 1;
+    user-select: none;
+}
+
+.themeToggleSwitch[data-theme="dark"] .themeToggleKnob {
+    transform: translateX(28px);
+}
+
+.themeToggleSwitch:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}

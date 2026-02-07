@@ -1,0 +1,146 @@
+.dashboardSectionCard {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.dashboardSectionHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.dashboardSectionHeaderRow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.dashboardSectionHeaderLeft {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    min-width: 0;
+}
+
+.dashboardSectionHeaderRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.dashboardSectionTitle {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    min-width: 0;
+}
+
+.dashboardSectionEditIconButton {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.dashboardSectionEditIconButton:hover {
+    color: var(--text);
+}
+
+.dashboardSectionEditIconButton:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.dashboardSectionTitleText {
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.dashboardSectionTitleSubText {
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.dashboardSectionMeta {
+    margin-top: 0;
+    font-size: 12px;
+    color: var(--text);
+}
+
+.dashboardSectionHeaderMetrics {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: start;
+}
+
+.dashboardSectionHeaderMetricsLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.dashboardSectionMetaRow {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    min-width: 0;
+}
+
+.dashboardSectionHeaderMetricsRight {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-items: baseline;
+    justify-items: end;
+    text-align: right;
+    min-width: 0;
+}
+
+.dashboardSectionMetaDivider {
+    opacity: 0.8;
+}
+
+.dashboardSectionSymbol {
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text);
+}
+
+.dashboardTablesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 6px;
+    padding: 10px;
+}
+
+.dashboardEmptyTables {
+    grid-column: 1 / -1;
+    color: var(--text);
+    font-size: 12px;
+}
+
+.dashboardSectionTimerValue {
+    font-size: 15px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+}
+
+.dashboardSectionTimerLabel {
+    color: var(--text);
+}
